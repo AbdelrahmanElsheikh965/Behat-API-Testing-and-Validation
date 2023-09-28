@@ -1,8 +1,6 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
 
 /**
  * Defines application features from the specific context.
@@ -10,6 +8,11 @@ use Behat\Gherkin\Node\TableNode;
 class FeatureContext implements Context
 {
     protected $carCount = 0;
+
+    protected $client = null;
+    protected $issues = null;
+    protected $results = null;
+
     /**
      * Initializes context.
      *
@@ -19,7 +22,39 @@ class FeatureContext implements Context
      */
     public function __construct()
     {
+        $this->client = new \Github\Client();
     }
+
+    /**
+     * @Given I am an anonymous user
+     */
+    public function iAmAnAnonymousUser()
+    {
+        // Nothing here as this client is anonymous by default.
+    }
+
+    /**
+     * @When I request a list of issues for the Symfony repository from user Symfony
+     */
+    public function iRequestAListOfIssuesForTheSymfonyRepositoryFromUserSymfony()
+    {
+        $this->results = $this->client->issues()->all('Symfony', 'Symfony');
+    }
+
+    /**
+     * @Then I should find at least :arg1 result
+     */
+    public function iShouldFindAtLeastOneResult($arg1)
+    {
+        if (count($this->results) < $arg1) {
+            throw
+            new Exception("Expected at least 1 result but found " . $arg1);
+        }
+    }
+
+
+
+    # ===================================================================================
 
     /**
      * @Given I have :arg1 cars
