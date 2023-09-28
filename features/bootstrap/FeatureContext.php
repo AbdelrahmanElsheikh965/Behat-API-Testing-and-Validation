@@ -42,6 +42,18 @@ class FeatureContext implements Context
     }
 
     /**
+     * @When I request a list of issues for the :arg1 repository from user :arg2
+     */
+    public function iRequestAListOfIssuesForTheRepositoryFromUser($arg1, $arg2)
+    {
+        $this->results = $this->client->issues()->all($arg1, $arg2);
+        $statusCode = $this->client->getLastResponse()->getStatusCode();
+        if ($statusCode != 200) {
+            throw new Exception("Expected 200 HTTP status code but got ". $statusCode); 
+        }
+    }
+
+    /**
      * @Then I should find at least :arg1 result
      */
     public function iShouldFindAtLeastOneResult($arg1)
