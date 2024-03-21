@@ -51,3 +51,6 @@ Consider testing your piece of software as it's very crucial skill to have.
 
 
 Testing mechanisms ensure that every single part of the project is working flawlessly.
+
+Why not creating your own testing framework,
+think about it ?
