@@ -54,3 +54,5 @@ Testing mechanisms ensure that every single part of the project is working flawl
 
 Why not creating your own testing framework,
 think about it ?
+
+Main purpose of any testing tool is to monitor the behavior of program and detect accurately if anything went wrong
