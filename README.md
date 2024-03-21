@@ -48,3 +48,6 @@ Copy methods from the terminal & paste them into main FeatureContext.php Class
 Implement your functionality, test, refactor, test and refactor until you pass them all.
 
 Consider testing your piece of software as it's very crucial skill to have.
+
+
+Testing mechanisms ensure that every single part of the project is working flawlessly.
