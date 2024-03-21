@@ -46,3 +46,5 @@ Run the following command (make sure you are in the right pwd)
 
 Copy methods from the terminal & paste them into main FeatureContext.php Class  
 Implement your functionality, test, refactor, test and refactor until you pass them all.
+
+Consider testing your piece of software as it's very crucial skill to have.
